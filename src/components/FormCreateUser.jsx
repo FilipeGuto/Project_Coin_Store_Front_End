@@ -22,7 +22,7 @@ export default function FormLogin() {
     const newUser = createNewUser(userData)
 
     if(newUser) {
-      navigate('/products');
+      navigate('/login');
     }
   };
 
@@ -54,7 +54,7 @@ export default function FormLogin() {
           />
         </div>
         <button variant="primary" value="login" type="submit">
-          Login
+          Criar
         </button>
       </form>
     </div>

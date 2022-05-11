@@ -17,6 +17,7 @@ export default function FormLogin() {
       alert("Inisira email e senha validas");
     } else if (userData) {
       const logged = await loginUser(userData);
+      localStorage.setItem('user', JSON.stringify(logged));
       if( logged === undefined) {
         alert("Você não possui conta");
       }
