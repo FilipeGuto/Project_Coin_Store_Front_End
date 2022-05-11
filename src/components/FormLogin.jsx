@@ -17,7 +17,9 @@ export default function FormLogin() {
       alert("Inisira email e senha validas");
     } else if (userData) {
       const logged = await loginUser(userData);
-
+      if( logged === undefined) {
+        alert("Você não possui conta");
+      }
       if(logged.role ===  "admin") {
         navigate("/admin");
       } else {
