@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwt from "jwt-decode";
 
 const createNewUser = async (user) => {
   try {
@@ -27,10 +28,9 @@ const loginUser = async (user) => {
     };
 
     const { data } = await axios.request(options);
+    const info = await jwt(data.token);
 
-    console.log('O QUE VEM', data);
-
-    return data;
+    return info.user;
   } catch (error) {
     return console.log(error);
   }

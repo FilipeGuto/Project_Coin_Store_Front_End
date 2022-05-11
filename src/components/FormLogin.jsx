@@ -12,12 +12,17 @@ export default function FormLogin() {
 
     const userData = { email, password };
 
+    
     if (!email && !password) {
       alert("Inisira email e senha validas");
-    } else {
-      await loginUser(userData);
+    } else if (userData) {
+      const logged = await loginUser(userData);
 
-      navigate("/products");
+      if(logged.role ===  "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/products");
+      }
     }
   };
 
