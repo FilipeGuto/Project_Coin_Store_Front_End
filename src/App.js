@@ -5,6 +5,7 @@ import {
   Register,
   Product,
   Admin,
+  UserCoin,
 } from './page';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/products' element={<Product />} />
             <Route exact path='/admin' element={<Admin />} />
+            <Route exact path='/admin/update_user' element={<UserCoin />} />
           </Routes>
       </BrowserRouter>
     </div>

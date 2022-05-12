@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { createNewProduct } from "../services/products";
 
-export default function FormLogin() {
+export default function FormCreateProduct() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,10 +15,11 @@ export default function FormLogin() {
       description,
       quantity,
       price,
+      image,
     };
 
     
-    if(!title && !description && !quantity && !price) {
+    if(!title && !description && !quantity && !price && !image) {
       alert('Preencha todos os campos');
     } else if(userData) {
       await createNewProduct(userData);
@@ -63,6 +65,14 @@ export default function FormLogin() {
             placeholder="Quantidade do produto"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Link para Image"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
           />
         </div>
         <button value="login" type="submit">

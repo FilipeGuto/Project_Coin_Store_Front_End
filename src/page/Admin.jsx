@@ -1,6 +1,7 @@
 import React from 'react'
 import NavbarAdmin from '../components/NavbarAdmin';
 import FormCreateProduct from '../components/FormCreateProduct';
+import InfoUsers from '../components/InfoUsers';
 
 export default function Admin() {
   return (
@@ -12,7 +13,7 @@ export default function Admin() {
       <FormCreateProduct />
     </div>
     <div>
-      ALTERAR COINS
+      <InfoUsers />
     </div>
     </>
   )

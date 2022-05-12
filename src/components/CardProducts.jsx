@@ -24,7 +24,7 @@ export default function CardProducts() {
             </h3>
             <div>
               <img
-                src={product.image}
+                src={product.image} width="150px"
                 alt={product.title}
               />
             </div>
@@ -38,7 +38,7 @@ export default function CardProducts() {
               <h6>
                 {product.price}
                 {' '}
-                `QUANTITY: ${product.quantity}`
+                {product.quantity}
               </h6>
             </div>
           </div>

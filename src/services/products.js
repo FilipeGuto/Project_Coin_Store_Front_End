@@ -29,6 +29,7 @@ const createNewProduct = async (product) => {
         description: product.description,
         quantity: parseInt(product.quantity),
         price: parseInt(product.price),
+        image: product.image,
       }
     };
 
