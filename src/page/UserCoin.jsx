@@ -1,11 +1,12 @@
-import React, {  useContext, useState } from 'react';
-import NavbarAdmmin from '../components/NavbarAdmin';
-import { updateCoinUser } from '../services/users';
-import { useNavigate } from 'react-router';
-import Context from '../Context/Context';
+import React, { useContext, useState } from "react";
+import NavbarAdmmin from "../components/NavbarAdmin/NavbarAdmin";
+import { updateCoinUser } from "../services/users";
+import { useNavigate } from "react-router";
+import Context from "../Context/Context";
+import { Card, Button, Form } from "react-bootstrap";
 
 export default function UserCoin() {
-  const {updateUser, setUpdateUser} = useContext(Context);
+  const { updateUser, setUpdateUser } = useContext(Context);
   const [coin, setCoin] = useState("");
   const navigate = useNavigate();
 
@@ -15,12 +16,11 @@ export default function UserCoin() {
     const update = {
       email: updateUser.email,
       coin: coin,
-    }
+    };
 
-    
-    if(!coin) {
-      alert('Preencha o campo de moedas');
-    } else if(update) {
+    if (!coin) {
+      alert("Preencha o campo de moedas");
+    } else if (update) {
       await updateCoinUser(update);
       alert("Moedas alterada com sucesso");
 
@@ -28,37 +28,37 @@ export default function UserCoin() {
 
       setCoin("");
     }
-  }
-
-  const previousPage = () => {
-    navigate('/admin');
-  }
-
+  };
 
   return (
     <div>
       <NavbarAdmmin />
-      <h3>{updateUser.email}</h3>
-      <h5>{updateUser.coin}</h5>
-      <input 
-      type="number"
-      placeholder="nova quantidade de moedas"
-      value={coin}
-      onChange={(e) => setCoin(e.target.value)}
-      />
-      <button
-      type='button'
-      onClick={updateCoin}
-      >
-        Alterar
-      </button>
-
-      <button
-      type='button'
-      onClick={previousPage}
-      >
-        Voltar
-      </button>
+      <Card className="text-center">
+        <Card.Header></Card.Header>
+        <Card.Body>
+          <Card.Title>{updateUser.email}</Card.Title>
+          <Card.Body>QUANTIDADE DE MOEDAS: {updateUser.coin}</Card.Body>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control
+              type="number"
+              placeholder="Nova quantia"
+              value={coin}
+              onChange={(e) => setCoin(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="button" onClick={updateCoin}>
+            Alterar
+          </Button>{" "}
+          <Button
+            variant="primary"
+            type="button"
+            onClick={() => navigate("/admin")}
+          >
+            Voltar
+          </Button>
+        </Card.Body>
+        <Card.Footer></Card.Footer>
+      </Card>
     </div>
-  )
+  );
 }

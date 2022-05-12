@@ -1,7 +1,7 @@
 import React from 'react'
-import NavbarAdmin from '../components/NavbarAdmin';
-import FormCreateProduct from '../components/FormCreateProduct';
-import InfoUsers from '../components/InfoUsers';
+import NavbarAdmin from '../components/NavbarAdmin/NavbarAdmin';
+import FormCreateProduct from '../components/FormCreateProduct/FormCreateProduct';
+import InfoUsers from '../components/InfoUsers/InfoUsers';
 
 export default function Admin() {
   return (
