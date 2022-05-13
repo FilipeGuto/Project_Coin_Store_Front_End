@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/products";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
+import "./cardProducts.css"
 
 export default function CardProducts() {
   const [data, setData] = useState([]);
@@ -16,32 +17,28 @@ export default function CardProducts() {
   }, []);
 
   return (
-    <div>
-      {data.map((product) => (
-        <div key={product._id}>
-          <div>
-            <Row xs={1} md={2} className="g-4">
-              {Array.from({ length: 2 }).map((_, idx) => (
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={product.image} />
-                    <Card.Body>
-                      <Card.Title>{product.title}</Card.Title>
-                      <Card.Text>{product.description}</Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                      <span>
-                        <h5>{product.price}</h5>
-                        <h6>{product.quantity}</h6>
-                      </span>
-                    </Card.Footer>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </div>
-      ))}
+    <div className="container mt-5">
+      <Row xs={1} md={2} lg={4} className="g-4">
+        {data.map((product) => (
+          <Col>
+            <Card>
+              <Card.Img src={product.image} />
+              <Card.Body>
+                <Card.Title className="title-product">{product.title}</Card.Title>
+                <Card.Text className="p-product">{product.description}</Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <span className="price-product">
+                  <h5>{product.price}</h5>
+                  <Button>
+                    Comprar
+                  </Button>
+                </span>
+              </Card.Footer>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }

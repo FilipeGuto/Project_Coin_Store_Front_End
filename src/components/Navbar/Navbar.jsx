@@ -15,7 +15,7 @@ export default function NavbarUser() {
 
   return (
     <>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" className="container-fluid">
           <Container>
             <Navbar.Brand><strong>COIN STORE</strong></Navbar.Brand>
             <Nav>
@@ -23,7 +23,7 @@ export default function NavbarUser() {
               <Nav.Link className="coin-nav"><i className="fa-solid fa-coins coin"></i>&nbsp;{user.coin}</Nav.Link>
               <Button
               type="button"
-              className="btn-nav"
+              className="btn-loggout"
               onClick={() => loggout()}
               >SAIR
               </Button>
