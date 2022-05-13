@@ -1,0 +1,15 @@
+.title-login {
+  font-weight: bold;
+  color: white;
+}
+
+.form-login {
+  padding: 4rem;
+  background-color: #F8F8FF;
+}
+
+.ctn {
+  border: 1px solid;
+  height: 45.5rem;
+  background: linear-gradient(-45deg, rgb(91, 91, 91),  #414142, #242425);
+}
