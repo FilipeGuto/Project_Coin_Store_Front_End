@@ -1,0 +1,15 @@
+.coin {
+  color: #F0E68C;
+  margin-left: 0.7rem;
+}
+
+.coin-nav {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+.btn-nav {
+  margin-left: 2.0rem;
+}

@@ -62,6 +62,7 @@ export default function FormCreateUser() {
         variant="primary"
         type="submit"
         >
+          CRIAR
         </Button>
       </Form>
     </div>
