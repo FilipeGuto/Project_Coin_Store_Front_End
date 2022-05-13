@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbaradmin.css";
 
 export default function NavbarAdmin() {
@@ -20,12 +20,12 @@ export default function NavbarAdmin() {
           <Navbar.Brand><strong>COIN STORE</strong></Navbar.Brand>
           <Nav>
             <Nav.Link className="coin-nav">{user.name}</Nav.Link>
-            <Button className="btn-loggout" type="button" onClick={() => navigate("/products")}>
+            <button className="btn-loggout" type="button" onClick={() => navigate("/products")}>
               PRODUTOS
-            </Button>
-            <Button className="btn-loggout" type="button" onClick={() => loggout()}>
+            </button>
+            <button className="btn-loggout" type="button" onClick={() => loggout()}>
               SAIR
-            </Button>
+            </button>
           </Nav>
         </Container>
       </Navbar>
