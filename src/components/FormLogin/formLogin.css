@@ -10,6 +10,12 @@
 
 .ctn {
   border: 1px solid;
-  height: 45.5rem;
+  height: 45.2rem;
   background: linear-gradient(-45deg, rgb(91, 91, 91),  #414142, #242425);
 }
+
+@media screen and (max-width: 600px) {
+  .ctn {
+    height: 41.8rem;
+  }
+};
