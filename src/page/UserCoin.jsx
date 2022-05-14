@@ -33,12 +33,12 @@ export default function UserCoin() {
   return (
     <div>
       <NavbarAdmmin />
-      <Card className="text-center">
+      <Card className="text-center mt-5">
         <Card.Header></Card.Header>
         <Card.Body>
-          <Card.Title>{updateUser.email}</Card.Title>
+          <Card.Title className="mb-3">{updateUser.email}</Card.Title>
           <Card.Body>QUANTIDADE DE MOEDAS: {updateUser.coin}</Card.Body>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3 container">
             <Form.Control
               type="number"
               placeholder="Nova quantia"
@@ -47,14 +47,14 @@ export default function UserCoin() {
             />
           </Form.Group>
           <Button variant="primary" type="button" onClick={updateCoin}>
-            Alterar
+            ALTERAR
           </Button>{" "}
           <Button
             variant="primary"
             type="button"
             onClick={() => navigate("/admin")}
           >
-            Voltar
+            VOLTAR
           </Button>
         </Card.Body>
         <Card.Footer></Card.Footer>
