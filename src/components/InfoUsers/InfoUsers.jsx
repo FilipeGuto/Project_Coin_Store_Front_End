@@ -33,13 +33,13 @@ export default function InfoUsers() {
 
   return (
     <div>
-      <Table striped bordered >
+      <Table responsive bordered hover className="noWrap">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Moedas</th>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>COIN</th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@ export default function InfoUsers() {
                 className="btn-users"
                 onClick={() => handleCoins(user.email, user.coin)}
               >
-                Alterar moedas
+                Alterar coin
               </button>
             </tr>
             )

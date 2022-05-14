@@ -10,3 +10,10 @@
   width: 100%;
 }
 
+.btn-users:hover {
+  background-color: #333741 !important;
+}
+
+.noWrap {
+  white-space: nowrap;
+}
