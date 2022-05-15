@@ -43,6 +43,7 @@ export default function FormCreateUser() {
                 <Form.Label>Insira seu nome</Form.Label>
                 <Form.Control
                   type="text"
+                  data-cy="input-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />

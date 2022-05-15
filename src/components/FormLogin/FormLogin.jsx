@@ -7,6 +7,8 @@ import "./formLogin.css";
 export default function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emptyText, setEmptyText] = useState("");
+  const [handleError, setHandleError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -15,17 +17,19 @@ export default function FormLogin() {
     const userData = { email, password };
 
     if (!email && !password) {
-      alert("Insira email e senha validas");
+      setEmptyText('Insira email e senha válidas');
     } else if (userData) {
       const logged = await loginUser(userData);
       localStorage.setItem("user", JSON.stringify(logged));
-      if (logged === undefined) {
-        alert("Você não possui conta");
+      if (logged.message) {
+        setHandleError('Email ou senha incorretas');
       }
       if (logged.role === "admin") {
         navigate("/admin");
-      } else {
+      } else if (logged.role === "user") {
         navigate("/products");
+      } else {
+        navigate("/");
       }
     }
   };
@@ -50,7 +54,7 @@ export default function FormLogin() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                />
+                  />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Insira sua senha</Form.Label>
@@ -59,7 +63,7 @@ export default function FormLogin() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                />
+                  />
               </Form.Group>
               <Button type="submit" data-cy="button-login">
                 ENTRAR
@@ -67,6 +71,12 @@ export default function FormLogin() {
               <Button type="button" onClick={handleCreateAccount} data-cy="button-register">
                 REGISTRAR
               </Button>
+                  <div data-cy="empty-fields">
+                  {emptyText}
+                  </div>
+                  <div data-cy="error-fields">
+                    {handleError}
+                  </div>
             </Form>
           </Col>
         </Row>

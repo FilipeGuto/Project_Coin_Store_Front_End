@@ -32,6 +32,13 @@ export default function InfoUsers() {
     navigate("/admin/update_user");
   };
 
+  if (!data)
+  return (
+    <div>
+      <img src="images/carregando.gif" alt="Carregando" />
+    </div>
+  );
+
   return (
     <div>
       <Table responsive bordered hover className="noWrap">

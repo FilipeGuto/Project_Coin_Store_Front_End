@@ -16,6 +16,14 @@ export default function CardProducts() {
     getProducts();
   }, []);
 
+  if (!data)
+    return (
+      <div>
+        <img src="images/carregando.gif" alt="Carregando" />
+      </div>
+    );
+
+
   return (
     <div className="container mt-5">
       <Row xs={1} md={2} lg={4} className="g-4">
