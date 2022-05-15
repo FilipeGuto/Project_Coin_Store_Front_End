@@ -78,7 +78,7 @@ describe('Componente de "Registro"', () => {
 
   it('Se o email já esta cadastrado retorna erro', () => {
     cy.get('[data-cy=input-name]').type('Usuario');
-    cy.get('[data-cy=input-email]').type('cliente001@email.com');
+    cy.get('[data-cy=input-email]').type('filipe@email.com');
     cy.get('[data-cy=input-password]').type('abcde');
     cy.get('[data-cy=button-submit]').click();
 
@@ -95,4 +95,24 @@ describe('Componente de "Registro"', () => {
 
 // ----------------------- ADMIN ----------------------------
 
+describe('Componente de "Admin"', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
 
+  it('Caso tenha a role "admin" entra na pagina "/admin"', () => {
+    cy.get('[data-cy=input-email]').type('email@email.com');
+    cy.get('[data-cy=input-password]').type('12345');
+    cy.get('[data-cy=button-login]').click();
+
+    cy.get('[data-cy=name]');
+  })
+
+  it('Caso tenha a role "user" entra na pagina "/products"', () => {
+    cy.get('[data-cy=input-email]').type('usuario@email.com');
+    cy.get('[data-cy=input-password]').type('123456');
+    cy.get('[data-cy=button-login]').click();
+
+    cy.get('[data-cy=name]');
+  })
+});

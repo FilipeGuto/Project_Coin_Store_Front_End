@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import NavbarAdmmin from "../components/NavbarAdmin/NavbarAdmin";
-import { updateCoinUser } from "../services/users";
+import { updateCoinUser, deleteUser } from "../services/users";
 import { useNavigate } from "react-router";
 import Context from "../Context/Context";
 import { Card, Button, Form } from "react-bootstrap";
@@ -30,6 +30,12 @@ export default function UserCoin() {
     }
   };
 
+  const deleteUserById = async (id) => {
+    const user = await deleteUser(id);
+
+    console.log(user);
+  };
+
   return (
     <div>
       <NavbarAdmmin />
@@ -49,6 +55,13 @@ export default function UserCoin() {
           <Button variant="primary" type="button" onClick={updateCoin}>
             ALTERAR
           </Button>{" "}
+          <Button
+          variant="danger"
+          type="button"
+          onClick={() => deleteUserById(updateUser.id)}
+          >
+            DELETAR
+          </Button>{' '}
           <Button
             variant="primary"
             type="button"

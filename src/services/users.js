@@ -91,10 +91,31 @@ const updateCoinUser = async (user) => {
   }
 };
 
+const deleteUser = async (user) => {
+  try {
+const options = {
+  method: 'DELETE',
+  url: `https://project-voll-back-end.herokuapp.com/users/${user.id}`,
+  headers: {
+  Authorization: getTokenFromLocalStorage()
+  }
+};
+
+  const { data } = await axios.request(options);
+
+  console.log(data);
+
+  return data;
+} catch (error) {
+    console.error(error);
+  }
+}
+
 
 export {
   createNewUser,
   loginUser,
   getAllUsers,
   updateCoinUser,
+  deleteUser,
 };

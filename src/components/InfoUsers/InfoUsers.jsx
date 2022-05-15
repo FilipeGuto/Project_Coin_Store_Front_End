@@ -13,7 +13,6 @@ export default function InfoUsers() {
   useEffect(() => {
     async function getInfo() {
       const users = await getAllUsers();
-      console.log(users);
 
       return setData(users);
     }
@@ -61,7 +60,7 @@ export default function InfoUsers() {
               <button
                 type="button"
                 className="btn-users"
-                onClick={() => handleCoins(user.email, user.coin)}
+                onClick={() => handleCoins(user.email, user.coin, user.id)}
               >
                 Alterar coin
               </button>

@@ -19,11 +19,11 @@ export default function NavbarAdmin() {
         <Container>
           <Navbar.Brand><strong>COIN STORE</strong></Navbar.Brand>
           <Nav>
-            <Nav.Link className="coin-nav">{user.name}</Nav.Link>
-            <button className="btn-loggout" type="button" onClick={() => navigate("/products")}>
+            <Nav.Link data-cy="name" className="coin-nav">{user.name}</Nav.Link>
+            <button data-cy="button-product" className="btn-loggout" type="button" onClick={() => navigate("/products")}>
               PRODUTOS
             </button>
-            <button className="btn-loggout" type="button" onClick={() => loggout()}>
+            <button data-cy="button-loggout" className="btn-loggout" type="button" onClick={() => loggout()}>
               SAIR
             </button>
           </Nav>
