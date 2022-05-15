@@ -13,6 +13,7 @@ export default function InfoUsers() {
   useEffect(() => {
     async function getInfo() {
       const users = await getAllUsers();
+      console.log(users);
 
       return setData(users);
     }
@@ -43,7 +44,7 @@ export default function InfoUsers() {
           </tr>
         </thead>
         <tbody>
-          {data.map((user) => (
+          {data && data.map((user) => (
             user.role === "admin" ? null : (
             <tr>
               <td>{user._id}</td>

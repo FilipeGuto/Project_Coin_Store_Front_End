@@ -15,7 +15,7 @@ export default function FormLogin() {
     const userData = { email, password };
 
     if (!email && !password) {
-      alert("Inisira email e senha validas");
+      alert("Insira email e senha validas");
     } else if (userData) {
       const logged = await loginUser(userData);
       localStorage.setItem("user", JSON.stringify(logged));
@@ -46,6 +46,7 @@ export default function FormLogin() {
               <Form.Group className="mb-3">
                 <Form.Label>Insira seu email</Form.Label>
                 <Form.Control
+                  data-cy="input-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -54,16 +55,17 @@ export default function FormLogin() {
               <Form.Group className="mb-3">
                 <Form.Label>Insira sua senha</Form.Label>
                 <Form.Control
+                  data-cy="input-password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
-                Entrar
+              <Button type="submit" data-cy="button-login">
+                ENTRAR
               </Button>{" "}
-              <Button type="button" onClick={handleCreateAccount}>
-                Registrar
+              <Button type="button" onClick={handleCreateAccount} data-cy="button-register">
+                REGISTRAR
               </Button>
             </Form>
           </Col>

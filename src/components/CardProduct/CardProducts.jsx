@@ -19,7 +19,7 @@ export default function CardProducts() {
   return (
     <div className="container mt-5">
       <Row xs={1} md={2} lg={4} className="g-4">
-        {data.map((product) => (
+        {data && data.map((product) => (
           <Col>
             <Card>
               <Card.Img src={product.image} />
@@ -31,7 +31,7 @@ export default function CardProducts() {
                 <span className="price-product">
                   <h5>{product.price}</h5>
                   <Button>
-                    Comprar
+                    COMPRAR
                   </Button>
                 </span>
               </Card.Footer>
