@@ -7,6 +7,8 @@ export default function FormCreateUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [emptyText, setEmptyText] = useState("");
+  const [handleError, setHandleError] = useState("");
 
   const navigate = useNavigate();
 
@@ -19,11 +21,21 @@ export default function FormCreateUser() {
       password,
     };
 
-    const newUser = createNewUser(userData);
+    if (!name && !email && !password) {
+      setEmptyText("Insira dados válidos");
+    } else if (userData) {
+      const create = await createNewUser(userData);
+      if (create.message) {
+        setHandleError("Email já cadastrado");
 
-    if (newUser) {
-      alert("Email cadrastrado com sucesso");
-      navigate("/login");
+        setName('')
+        setEmail('')
+        setPassword('')
+
+        navigate("/register");
+      } else {
+        navigate("/login");
+      }
     }
   };
 
@@ -52,6 +64,7 @@ export default function FormCreateUser() {
                 <Form.Label>Insira seu email</Form.Label>
                 <Form.Control
                   type="email"
+                  data-cy="input-email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -60,13 +73,16 @@ export default function FormCreateUser() {
                 <Form.Label>Insira sua senha</Form.Label>
                 <Form.Control
                   type="password"
+                  data-cy="input-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button data-cy="button-submit" type="submit">
                 CRIAR
               </Button>
+              <div>{emptyText}</div>
+              <div>{handleError}</div>
             </Form>
           </Col>
         </Row>

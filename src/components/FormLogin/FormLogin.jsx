@@ -17,7 +17,7 @@ export default function FormLogin() {
     const userData = { email, password };
 
     if (!email && !password) {
-      setEmptyText('Insira email e senha válidas');
+      setEmptyText('Insira dados válidos');
     } else if (userData) {
       const logged = await loginUser(userData);
       localStorage.setItem("user", JSON.stringify(logged));

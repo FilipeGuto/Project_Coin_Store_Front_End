@@ -16,12 +16,13 @@ const createNewUser = async (user) => {
       data: { name: user.name, email: user.email, password: user.password }
     };
 
-    const { data } = axios.request(options);
+    const { data } = await axios.request(options);
 
     return data;
   } catch (error) {
-    if(error) {
-      return error.response?.data;
+    if (error) {
+      const errorLog = error.response.data;
+      return errorLog;
     }
   }
 };
@@ -41,7 +42,7 @@ const loginUser = async (user) => {
 
     return info.user;
   } catch (error) {
-    if(error) {
+    if (error) {
       const errorLog = error.response.data;
       return errorLog;
     }
