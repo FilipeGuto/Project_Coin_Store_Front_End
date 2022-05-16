@@ -1,5 +1,9 @@
 import axios from "axios";
 
+import {
+  getTokenFromLocalStorage,
+} from "../utils/authToken";
+
 const getAllProducts = async () => {
   try {
     const options = {
@@ -22,7 +26,7 @@ const createNewProduct = async (product) => {
       url: 'https://project-voll-back-end.herokuapp.com/products',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyNzljMmU4NGI5ZmE5MTBmY2JjNDQwOCIsIm5hbWUiOiJVc3VhcmlvIDAwMSIsImVtYWlsIjoiZW1haWwwM0BlbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImNvaW4iOjEwMH0sImlhdCI6MTY1MjIyNjA2MywiZXhwIjoxNjUyNTg2MDYzfQ.2jYRlhRQs-__vL_dG_pQ8JvwHUhkK9aEwJlXUnl8uTc'
+        Authorization: getTokenFromLocalStorage()
       },
       data: {
         title: product.title,
