@@ -1,4 +1,7 @@
 import axios from "axios";
+import {
+  getTokenFromLocalStorage,
+} from "../utils/authToken";
 
 import {
   getTokenFromLocalStorage,
