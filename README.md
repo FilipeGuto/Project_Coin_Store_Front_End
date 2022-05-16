@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Bem-vindos ao projeto Coin_Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contexto
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+Esse projeto foi desenvolvido para um teste tecnico.
 
-### `npm start`
+A proposta era desenvolver uma aplicação full stack de um e-commerce com duas rotas especificas de usuario e admin, e controle de coins.<br>
+A rota ADMN = tem acesso a criação de produtos e atualização de usuario.<br>
+A rota USER = tem acesso aos produtos, preço e descrição, além de ter suas coins visivel.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Como visualizar este projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Acesse:  [`Coin Store`](https://deft-moxie-065dae.netlify.app/).
 
-### `npm test`
+Projeto feito de forma responsiva para rodar tanto web como mobile.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Requisições da aplicação:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A API consta com rotas para usuarios: 
+  * `/` [`POST`] Cria um novo usuario e adiciona no banco
+  * `/` [`POST`] Loga com um usuario gerando token e informações no banco
+  * `/` [`GET`] Caso tenha um token de autenticação, busca todos usuarios que esta no banco
+  * `/` [`PUT`]  Caso tenha um token de autenticacao, edita dados de um usuario cadastrado no banco
+  * `/` [`DELETE`] Caso tenha um token de autenticação, deleta um usuario do banco
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A API consta com rotas para produtos:
+  * `/` [`POST`] Cria um novo produto e adiciona no banco (somente acessada pelo admin)
+  * `/` [`GET`] Busca todos produtos cadastrados no banco
+  * `/` [`PUT`]  Eita dados de um produto cadastrado no banco (somente acessada pelo admin)
+  * `/` [`DELETE`] Deleta produtos no banco (somente acessada pelo admin)
 
-### `npm run eject`
+## O que temos no Front:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Aqui o usuario pode logar na pagina /login, caso não tenha conta ele pode acessar o registrar e ser direcionado para /register<br>
+Com seu login valido entrará na pagina /products, onde estara disponivel o seu nome de usuario e quantidade de coins disponivel<br>
+também será visivel um botão para sair da aplicação onde voce retornara para /.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Modo de desenvolvimento
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+O projeto foi desenvolvido utilizando com uso de Components, Pages, além de Utils e Services para sua contrução,<br>
+A parte de metodos foi feito uso de hooks, context, e localStorage, como também useNavigate para rotas.<br>
+Sua estilização foi basica e feita com ajuda de react-bootstrap<br>
+Este projeto teve seu deploy feito pela Netlify.<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Além disso ao final foram feitos testes de integração para os componentes de usuario com cypress.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Tecnologias
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+React.js, Hooks, Context, Routes, React-Bootstrap, Cypress.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Próximos passos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* Implementação de testes unitarios, e um cobrimento maior de erros.
+* Completar mais testes de integração para componentes de usuario.
+* Implementar Delete de usuario e update de produtos
+* Implementar tela de checkout
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contatos
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2>Filipe Guto</h2>
+  <div style="display: flex; align-items: center;">
+    <img align="center" alt="Linkedin" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg">https://www.linkedin.com/in/filipeguto/
+  </div>
+  <br/>
+  <div style="display: flex;align-items: center;">
+    <img align="center" alt="github" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"> https://github.com/FilipeGuto
+  </div>
+  <br/>
+   <div style="display: flex;align-items: center;">
+    EMAIL: filipeguto95@gmail.com
+  </div>
+<br/>
