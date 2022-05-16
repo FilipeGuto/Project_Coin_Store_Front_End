@@ -17,3 +17,10 @@
 .noWrap {
   white-space: nowrap;
 }
+
+.loading {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 2rem;
+}

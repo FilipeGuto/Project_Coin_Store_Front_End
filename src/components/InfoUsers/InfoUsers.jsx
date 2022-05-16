@@ -3,10 +3,10 @@ import { getAllUsers } from "../../services/users";
 import { useNavigate } from "react-router-dom";
 import Context from "../../Context/Context";
 import { Table } from "react-bootstrap";
-import "./infousers.css"
+import "./infousers.css";
 
 export default function InfoUsers() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { setUpdateUser } = useContext(Context);
   const navigate = useNavigate();
 
@@ -14,7 +14,9 @@ export default function InfoUsers() {
     async function getInfo() {
       const users = await getAllUsers();
 
-      return setData(users);
+      setTimeout(() => {
+        return setData(users);
+      }, "5000");
     }
 
     getInfo();
@@ -32,11 +34,11 @@ export default function InfoUsers() {
   };
 
   if (!data)
-  return (
-    <div>
-      <img src="images/carregando.gif" alt="Carregando" />
-    </div>
-  );
+    return (
+      <div className="loading">
+        <h3>Carregando usuarios...</h3>
+      </div>
+    );
 
   return (
     <div>
@@ -50,23 +52,24 @@ export default function InfoUsers() {
           </tr>
         </thead>
         <tbody>
-          {data && data.map((user) => (
-            user.role === "admin" ? null : (
-            <tr>
-              <td>{user._id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.coin}</td>
-              <button
-                type="button"
-                className="btn-users"
-                onClick={() => handleCoins(user.email, user.coin, user.id)}
-              >
-                Alterar coin
-              </button>
-            </tr>
-            )
-          ))}
+          {data &&
+            data.map((user) =>
+              user.role === "admin" ? null : (
+                <tr>
+                  <td>{user._id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.coin}</td>
+                  <button
+                    type="button"
+                    className="btn-users"
+                    onClick={() => handleCoins(user.email, user.coin, user.id)}
+                  >
+                    Alterar coin
+                  </button>
+                </tr>
+              )
+            )}
         </tbody>
       </Table>
     </div>

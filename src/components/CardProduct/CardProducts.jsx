@@ -6,41 +6,43 @@ import { Card, Row, Col, Button } from "react-bootstrap";
 import "./cardProducts.css";
 
 export default function CardProducts() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { setProduct } = useContext(Context);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     async function getProducts() {
       const products = await getAllProducts();
+      
+      setTimeout(() => {
+        return setData(products);
+      }, "5000");
 
-      return setData(products);
     }
-
+    
     getProducts();
   }, []);
+  
+  const handleProduct = (id, title, description, price, quantity, image) => {
+    const data = {
+      id,
+      title,
+      description,
+      price,
+      quantity,
+      image,
+    };
+    
+    setProduct(data);
+    
+    navigate(`/product/${id}`);
+  };
 
-  if (!data)
-    return (
-      <div>
-        <img src="images/carregando.gif" alt="Carregando" />
-      </div>
-    );
-
-    const handleProduct = (id, title, description, price, quantity, image, ) => {
-      const data = {
-        id,
-        title,
-        description,
-        price,
-        quantity,
-        image,
-      }
-
-      setProduct(data);
-
-      navigate(`/product/${id}`);
-    }
+  if (!data) return (
+    <div className="loading">
+      <h3>Carregando produtos...</h3>
+    </div>
+  );
 
   return (
     <div className="container mt-5">
@@ -62,16 +64,20 @@ export default function CardProducts() {
                   <span className="price-product">
                     <h5>{product.price}</h5>
                     <Button
-                    type="button"
-                    onClick={() => handleProduct(
-                      product._id,
-                      product.title,
-                      product.description,
-                      product.price,
-                      product.quantity,
-                      product.image,
-                      )}
-                    >COMPRAR</Button>
+                      type="button"
+                      onClick={() =>
+                        handleProduct(
+                          product._id,
+                          product.title,
+                          product.description,
+                          product.price,
+                          product.quantity,
+                          product.image
+                        )
+                      }
+                    >
+                      COMPRAR
+                    </Button>
                   </span>
                 </Card.Footer>
               </Card>

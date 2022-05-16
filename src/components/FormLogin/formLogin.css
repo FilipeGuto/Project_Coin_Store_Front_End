@@ -14,6 +14,15 @@
   background: linear-gradient(-45deg, rgb(91, 91, 91),  #414142, #242425);
 }
 
+.loading-login{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 3rem !important;
+  color: white;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 600px) {
   .ctn {
     height: 100vh;

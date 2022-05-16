@@ -9,6 +9,7 @@ export default function FormLogin() {
   const [password, setPassword] = useState("");
   const [emptyText, setEmptyText] = useState("");
   const [handleError, setHandleError] = useState("");
+  const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,17 +18,23 @@ export default function FormLogin() {
     const userData = { email, password };
 
     if (!email && !password) {
-      setEmptyText('Insira dados válidos');
+      setEmptyText("Insira dados válidos");
     } else if (userData) {
       const logged = await loginUser(userData);
       localStorage.setItem("user", JSON.stringify(logged));
       if (logged.message) {
-        setHandleError('Email ou senha incorretas');
+        setHandleError("Email ou senha incorretas");
       }
       if (logged.role === "admin") {
-        navigate("/admin");
+        setTimeout(() => {
+          return navigate("/admin");
+        }, "5000");
+        setLoading("Carregando...");
       } else if (logged.role === "user") {
-        navigate("/products");
+        setTimeout(() => {
+          return navigate("/products");
+        }, "5000");
+        setLoading("Carregando...");
       } else {
         navigate("/");
       }
@@ -45,7 +52,12 @@ export default function FormLogin() {
       <Container className="mt-5">
         <h1 className="title-login text-center">COIN STORE</h1>
         <Row className="mt-5">
-          <Col lg={5} md={6} sm={12} className="p-5 m-auto rounded-lg form-login">
+          <Col
+            lg={5}
+            md={6}
+            sm={12}
+            className="p-5 m-auto rounded-lg form-login"
+          >
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Insira seu email</Form.Label>
@@ -54,7 +66,7 @@ export default function FormLogin() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  />
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Insira sua senha</Form.Label>
@@ -63,22 +75,23 @@ export default function FormLogin() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  />
+                />
               </Form.Group>
               <Button type="submit" data-cy="button-login">
                 ENTRAR
               </Button>{" "}
-              <Button type="button" onClick={handleCreateAccount} data-cy="button-register">
+              <Button
+                type="button"
+                onClick={handleCreateAccount}
+                data-cy="button-register"
+              >
                 REGISTRAR
               </Button>
-                  <div data-cy="empty-fields">
-                  {emptyText}
-                  </div>
-                  <div data-cy="error-fields">
-                    {handleError}
-                  </div>
+              <div data-cy="empty-fields">{emptyText}</div>
+              <div data-cy="error-fields">{handleError}</div>
             </Form>
           </Col>
+        <span className="loading-login">{loading}</span>
         </Row>
       </Container>
     </div>
