@@ -8,6 +8,8 @@ export default function FormCreateProduct() {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [emptyText, setEmptyText] = useState("");
+  const [sucess, setSucess] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,10 +22,10 @@ export default function FormCreateProduct() {
     };
 
     if (!title && !description && !quantity && !price && !image) {
-      alert("Preencha todos os campos");
+      setEmptyText("Preencha todos os campos");
     } else if (userData) {
       await createNewProduct(userData);
-      alert("Produto criado com sucesso");
+      setSucess("Produto criado com sucesso");
 
       setTitle("");
       setDescription("");
@@ -79,6 +81,10 @@ export default function FormCreateProduct() {
         <Button variant="primary" type="submit">
           CRIAR
         </Button>
+        <div className="loading">
+          {emptyText}
+          {sucess}
+        </div>
       </Form>
     </div>
   );

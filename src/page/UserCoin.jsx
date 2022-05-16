@@ -8,6 +8,8 @@ import { Card, Button, Form } from "react-bootstrap";
 export default function UserCoin() {
   const { updateUser, setUpdateUser } = useContext(Context);
   const [coin, setCoin] = useState("");
+  const [emptyText, setEmptyText] = useState("");
+  const [sucess, setSucess] = useState("");
   const navigate = useNavigate();
 
   const updateCoin = async (e) => {
@@ -19,10 +21,10 @@ export default function UserCoin() {
     };
 
     if (!coin) {
-      alert("Preencha o campo de moedas");
+      setEmptyText("Preencha o campo de moedas");
     } else if (update) {
       await updateCoinUser(update);
-      alert("Moedas alterada com sucesso");
+      setSucess("Moedas alterada com sucesso");
 
       setUpdateUser(update);
 
@@ -65,6 +67,10 @@ export default function UserCoin() {
         </Card.Body>
         <Card.Footer></Card.Footer>
       </Card>
+      <div className="loading">
+        {emptyText}
+        {sucess}
+      </div>
     </div>
   );
 }
