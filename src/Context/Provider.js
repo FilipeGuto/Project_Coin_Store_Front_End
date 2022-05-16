@@ -3,11 +3,14 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [updateUser, setUpdateUser] = useState({});
+  const [product, setProduct] = useState({});
 
 
   const providerValue = {
     updateUser,
     setUpdateUser,
+    product,
+    setProduct,
   };
 
   return(

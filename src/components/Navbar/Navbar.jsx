@@ -19,7 +19,7 @@ export default function NavbarUser() {
           <Container>
             <Navbar.Brand><strong>COIN STORE</strong></Navbar.Brand>
             <Nav>
-              <Nav.Link data-cy="name" className="coin-nav">{user.name}</Nav.Link>
+              <Nav.Link data-cy="name" className="coin-nav-name">{user.name}</Nav.Link>
               <Nav.Link data-cy="coin" className="coin-nav"><i className="fa-solid fa-coins coin"></i>&nbsp;{user.coin}</Nav.Link>
               <Button
               type="button"

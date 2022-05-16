@@ -3,3 +3,27 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 8rem;
+}
+
+@media screen and (max-width: 600px) {
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right {
+    text-align: center;
+    margin: 2rem 0;
+  }
+}

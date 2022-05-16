@@ -1,8 +1,10 @@
-.coin-nav {
-  font-size: 1rem;
+.coin-nav, .coin-nav-name{
+  font-size: 1.2rem !important;
   text-transform: uppercase;
   font-weight: bold;
   margin: 0 1rem 0 1rem;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .coin-nav .coin {
@@ -15,12 +17,15 @@
 }
 
 @media screen and (max-width: 600px) {
-  .coin-nav {
-    margin: 0;
+  .coin-nav, .coin-nav-name {
+    margin: 0 0.4rem !important;
+    font-size: 1rem !important;
+    padding: 0 !important;
   }
 
   .coin-nav .coin {
     color: #F0E68C;
+    margin-right: 0;
   }
 
   .btn-loggout {

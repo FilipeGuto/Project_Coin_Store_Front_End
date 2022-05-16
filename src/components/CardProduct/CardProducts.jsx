@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getAllProducts } from "../../services/products";
+import { useNavigate } from "react-router-dom";
+import Context from "../../Context/Context";
 import { Card, Row, Col, Button } from "react-bootstrap";
-import "./cardProducts.css"
+import "./cardProducts.css";
 
 export default function CardProducts() {
   const [data, setData] = useState([]);
+  const { setProduct } = useContext(Context);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getProducts() {
@@ -23,29 +27,56 @@ export default function CardProducts() {
       </div>
     );
 
+    const handleProduct = (id, title, description, price, quantity, image, ) => {
+      const data = {
+        id,
+        title,
+        description,
+        price,
+        quantity,
+        image,
+      }
+
+      setProduct(data);
+
+      navigate(`/product/${id}`);
+    }
 
   return (
     <div className="container mt-5">
       <Row xs={1} md={2} lg={4} className="g-4">
-        {data && data.map((product) => (
-          <Col>
-            <Card>
-              <Card.Img src={product.image} />
-              <Card.Body>
-                <Card.Title className="title-product">{product.title}</Card.Title>
-                <Card.Text className="p-product">{product.description}</Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                <span className="price-product">
-                  <h5>{product.price}</h5>
-                  <Button>
-                    COMPRAR
-                  </Button>
-                </span>
-              </Card.Footer>
-            </Card>
-          </Col>
-        ))}
+        {data &&
+          data.map((product) => (
+            <Col>
+              <Card>
+                <Card.Img src={product.image} />
+                <Card.Body>
+                  <Card.Title className="title-product">
+                    {product.title}
+                  </Card.Title>
+                  <Card.Text className="p-product">
+                    {product.description}
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <span className="price-product">
+                    <h5>{product.price}</h5>
+                    <Button
+                    type="button"
+                    onClick={() => handleProduct(
+                      product._id,
+                      product.title,
+                      product.description,
+                      product.price,
+                      product.quantity,
+                      product.image,
+                      )}
+                    >COMPRAR</Button>
+                  </span>
+                </Card.Footer>
+              </Card>
+            </Col>
+          ))}
       </Row>
     </div>
   );
