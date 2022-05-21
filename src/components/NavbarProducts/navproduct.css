@@ -1,16 +1,14 @@
-.coin-nav, .coin-nav-name{
+.coin-nav, .coin-nav-name, .coin-nav-cart{
   font-size: 1.2rem !important;
   text-transform: uppercase;
   font-weight: bold;
-  margin: 0 1rem 0 1rem;
   display: flex !important;
   align-items: center !important;
-  color: white !important;
 }
 
-.coin-nav .coin {
+.cart-lenght {
   color: #F0E68C;
-  margin: 0 0.5rem;
+  margin: 0;
 }
 
 .btn-loggout {
@@ -18,18 +16,18 @@
 }
 
 @media screen and (max-width: 600px) {
-  .coin-nav, .coin-nav-name {
-    margin: 0 0.4rem !important;
+  .coin-nav, .coin-nav-name{
+    margin-right: 0.5rem !important;
     font-size: 1rem !important;
     padding: 0 !important;
   }
 
-  .coin-nav .coin {
+  .coin-nav .cart-lenght {
     color: #F0E68C;
-    margin-right: 0;
+    margin-right: 0.5rem !important;
   }
 
   .btn-loggout {
-    margin:0
+    margin-left: 0.5rem !important;
   }
 }

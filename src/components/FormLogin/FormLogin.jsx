@@ -20,21 +20,18 @@ export default function FormLogin() {
     if (!email && !password) {
       setEmptyText("Insira dados válidos");
     } else if (userData) {
+      setTimeout(() => {
+      }, "5000");
+      setLoading("Carregando...");
       const logged = await loginUser(userData);
       localStorage.setItem("user", JSON.stringify(logged));
       if (logged.message) {
         setHandleError("Email ou senha incorretas");
       }
       if (logged.role === "admin") {
-        setTimeout(() => {
-          return navigate("/admin");
-        }, "5000");
-        setLoading("Carregando...");
+        return navigate("/admin");
       } else if (logged.role === "user") {
-        setTimeout(() => {
-          return navigate("/products");
-        }, "5000");
-        setLoading("Carregando...");
+        return navigate("/products");
       } else {
         navigate("/");
       }

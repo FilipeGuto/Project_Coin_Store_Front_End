@@ -1,11 +1,11 @@
 import React from 'react'
 import CardProducts from '../components/CardProduct/CardProducts';
-import Navbar from '../components/Navbar/Navbar';
+import NavbarProducts from '../components/NavbarProducts/Navbar';
 
 export default function Product() {
   return (
     <div>
-      <Navbar />
+      <NavbarProducts />
       <CardProducts />
     </div>
   )

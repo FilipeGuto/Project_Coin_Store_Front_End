@@ -48,8 +48,9 @@ export default function FormCreateProduct() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Descrição</Form.Label>
-          <Form.Control
+          <textarea
             type="text"
+            className="form-control"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -71,7 +72,7 @@ export default function FormCreateProduct() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Imagem do produto</Form.Label>
+          <Form.Label>Link da imagem</Form.Label>
           <Form.Control
             type="text"
             value={image}

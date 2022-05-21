@@ -4,6 +4,19 @@
   text-transform: uppercase;
 }
 
+.card-product {
+  margin-bottom: 4px;
+  height: 100%;
+}
+
+.img-product {
+  width: 100%;
+  max-width: 300px;
+  min-height: 200px;
+  display: block;
+  object-fit: cover;
+}
+
 .p-product {
   text-align: center;
 }
@@ -22,4 +35,8 @@
   position: relative;
   top: -0.3rem;
   padding-right: 0.1rem;
+}
+
+.btn-add-cart:active{
+  transform: translateY(2px);
 }

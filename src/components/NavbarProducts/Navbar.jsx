@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import "./navbaruser.css";
+import "./navproduct.css";
+import Context from "../../Context/Context";
 
-export default function NavbarUser() {
+export default function NavbarProducts() {
+  const { cartItems } = useContext(Context);
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+
+  const goToCart = () => {
+    navigate("/products/cart");
+  };
 
   const loggout = () => {
     localStorage.removeItem("user");
@@ -18,17 +24,23 @@ export default function NavbarUser() {
       <Navbar bg="dark" variant="dark" className="container-fluid">
         <Container>
           <Navbar.Brand>
-            <Nav.Link className="coin-nav-name" onClick={() => navigate("/products")}>
-              <strong>COIN STORE</strong>
-            </Nav.Link>
+            <strong>COIN STORE</strong>
           </Navbar.Brand>
           <Nav>
             <Nav.Link data-cy="name" className="coin-nav-name">
               {user.name}
             </Nav.Link>
-            <Nav.Link data-cy="coin" className="coin-nav">
-              <i className="fa-solid fa-coins coin"></i>&nbsp;{user.coin}
+            <Nav.Link
+              type="button"
+              onClick={() => goToCart()}
+              data-cy="cart"
+              className="coin-nav-cart"
+            >
+              <i className="fas fa-shopping-cart"></i>
             </Nav.Link>
+            <span className="cart-lenght">
+              {cartItems.length === 0 ? "0" : cartItems.length}
+            </span>
             <Button
               type="button"
               className="btn-loggout"
