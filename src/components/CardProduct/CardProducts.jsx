@@ -3,6 +3,7 @@ import { getAllProducts } from "../../services/products";
 import Context from "../../Context/Context";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import "./cardProducts.css";
+import loading from "../../images/loading.gif"
 
 export default function CardProducts() {
   const [data, setData] = useState(null);
@@ -23,7 +24,7 @@ export default function CardProducts() {
   if (!data)
     return (
       <div className="loading">
-        <h3>Carregando produtos...</h3>
+        <img src={loading} alt="Loading" />
       </div>
     );
 

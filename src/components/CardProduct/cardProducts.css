@@ -45,3 +45,14 @@
 .btn-add-cart:active{
   transform: translateY(2px);
 }
+
+@media screen and (max-width: 600px) {
+  .loading {
+    width: 100%;
+    margin-top: 10rem;
+  }
+  
+  .loading img{
+    width: 22rem;
+  }
+};

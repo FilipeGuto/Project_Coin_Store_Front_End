@@ -33,6 +33,20 @@ function Provider({ children }) {
     }
   }
 
+  const handleRemove = (product) => {
+    const copyProductCart = [...cartItems];
+    const productExist = copyProductCart.find((item) => item._id === product._id);
+
+    if (productExist && productExist.qtd >= 1) {
+      const filteredProduct = copyProductCart.filter((item) => item._id !== product._id);
+      setCartItems(filteredProduct);
+    }
+  }
+
+  const clearCart = () => {
+    setCartItems([]);
+  }
+
 
   const providerValue = {
     updateUser,
@@ -41,6 +55,8 @@ function Provider({ children }) {
     setCartItems,
     handleAddProduct,
     handleRemoveProduct,
+    handleRemove,
+    clearCart,
   };
 
   return (
