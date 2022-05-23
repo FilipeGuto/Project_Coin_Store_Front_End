@@ -46,14 +46,14 @@ export default function FormLogin() {
 
   return (
     <div className="ctn container-fluid">
-      <Container className="mt-5">
+      <Container className="mt-5 login-container">
         <h1 className="title-login text-center">COIN STORE</h1>
         <Row className="mt-5">
           <Col
             lg={5}
             md={6}
             sm={12}
-            className="p-5 m-auto rounded-lg form-login"
+            className="p-5 m-auto rounded-lg form-login lgn-container"
           >
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">

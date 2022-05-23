@@ -27,4 +27,8 @@
   .ctn {
     height: 100vh;
   }
+
+  .lgn-container {
+    height: 20rem !important;
+  }
 };
