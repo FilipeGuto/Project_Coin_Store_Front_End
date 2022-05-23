@@ -2,6 +2,7 @@
   border: 1px solid black;
   text-align: center;
   text-transform: uppercase;
+  font-weight: bold !important;
 }
 
 .card-product {
@@ -26,6 +27,10 @@
   justify-content: space-around;
   align-items: center;
   font-weight: bold;
+}
+
+.price-product h5 {
+  font-size: 1.6rem;
 }
 
 .price-product h5::before {

@@ -41,8 +41,8 @@ export default function InfoUsers() {
     );
 
   return (
-    <div>
-      <Table responsive bordered hover className="noWrap">
+    <div className="info-table">
+      <Table responsive bordered hover className="noWrap info">
         <thead>
           <tr>
             <th>ID</th>

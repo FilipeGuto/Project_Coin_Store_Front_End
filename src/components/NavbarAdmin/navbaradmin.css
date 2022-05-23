@@ -17,8 +17,13 @@
 }
 
 @media screen and (max-width: 600px) {
+  .nav-admin {
+    display: flex !important;
+    justify-content: space-around !important;
+  }
+
   .coin-nav {
-    margin-left: 0!important;
+    margin-left: 0 !important;
     margin-right: 0.2rem !important;
     font-size: 0.7rem;
   }

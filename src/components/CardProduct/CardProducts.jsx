@@ -28,7 +28,7 @@ export default function CardProducts() {
     );
 
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5 product-container">
       <Row xs={1} md={2} lg={4} className="g-4">
         {data &&
           data.map((product) => (
@@ -52,7 +52,7 @@ export default function CardProducts() {
                         className="btn-add-cart"
                         onClick={() => handleAddProduct(product)}
                       >
-                        COMPRAR
+                        ADICIONAR <br></br>AO CARRINHO
                       </Button>
                     </span>
                   </Card.Footer>

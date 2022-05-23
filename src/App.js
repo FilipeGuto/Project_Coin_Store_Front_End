@@ -6,7 +6,6 @@ import {
   Product,
   Admin,
   UserCoin,
-  Checkout,
   CartPage,
 } from './page';
 
@@ -18,7 +17,6 @@ function App() {
             <Route exact path="/" element={<Login />} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/register' element={<Register />} />
-            <Route exact path='/product/:id' element={<Checkout />} />
             <Route exact path='/products' element={<Product />} />
             <Route exact path='/products/cart' element={<CartPage />} />
             <Route exact path='/admin' element={<Admin />} />

@@ -15,8 +15,8 @@ export default function NavbarUser() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="container-fluid">
-        <Container>
+      <Navbar bg="dark" variant="dark" className="container-fluid fixed-top">
+        <Container className="nav-product">
           <Navbar.Brand>
             <Nav.Link className="coin-nav-name" onClick={() => navigate("/products")}>
               <strong>COIN STORE</strong>

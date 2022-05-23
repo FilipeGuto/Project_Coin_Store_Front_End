@@ -8,6 +8,11 @@
   color: white !important;
 }
 
+.nav-product {
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
 .coin-nav .coin {
   color: #F0E68C;
   margin: 0 0.5rem;

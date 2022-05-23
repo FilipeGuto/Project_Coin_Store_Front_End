@@ -6,6 +6,11 @@
   align-items: center !important;
 }
 
+.nav-product {
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
 .cart-lenght {
   color: #F0E68C;
   margin: 0;

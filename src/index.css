@@ -4,6 +4,11 @@
   font-family: sans-serif;
 }
 
+.product-page, .cart-page {
+  border-top: 1px solid;
+  margin-top: 3.3rem;
+}
+
 .left {
   display: flex;
   align-items: center;

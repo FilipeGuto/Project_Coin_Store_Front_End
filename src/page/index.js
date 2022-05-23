@@ -3,7 +3,6 @@ import Register from "./Register";
 import Product from "./Product";
 import Admin from "./Admin";
 import UserCoin from "./UserCoin";
-import Checkout from "./Checkout";
 import CartPage from "./Cart";
 
 export {
@@ -12,6 +11,5 @@ export {
   Product,
   Admin,
   UserCoin,
-  Checkout,
   CartPage,
 };
