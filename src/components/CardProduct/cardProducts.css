@@ -13,7 +13,7 @@
 .img-product {
   width: 100%;
   max-width: 300px;
-  min-height: 200px;
+  min-height: 300px;
   display: block;
   object-fit: cover;
 }

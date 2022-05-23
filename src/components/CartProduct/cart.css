@@ -1,26 +1,125 @@
-@media screen and (max-width: 600px) {
+.empty {
+  font-size: 1.3rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.total-container {
+  display: flex;
+  height: 3rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 1rem;
+}
+
+.total h2 {
+  color: white;
+}
+
+.total-container .btn-opt {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.remove-item {
+  margin: 0.5rem;
+}
+
+.cart-items {
+  margin: 1.2rem;
+  height: 40rem;
+}
+
+.cart-title {
+  border: 1px solid black;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+.cart-img {
+  width: 100%;
+  max-width: 300px;
+  min-height: 300px;
+  display: block;
+  object-fit: cover;
+}
+
+.p-cart {
+  text-align: center;
+}
+
+.price-cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+}
+
+.quantity {
+  text-align: center;
+}
+
+.quantity h6 {
+  font-size: 1.2rem;
+}
+
+.price-cart h5 {
+  font-size: 1.6rem;
+}
+
+.price-cart h5::before {
+  font-weight: bold;
+  content: "$";
+  font-size: 1rem;
+  position: relative;
+  top: -0.3rem;
+  padding-right: 0.1rem;
+}
+
+.btn-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.item-quantity {
+  margin: 0 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 425px) {
   .empty {
     font-size: 1.3rem;
     margin-top: 5rem;
-    margin-left: 4rem;
+    text-align: center;
   }
 
   .total-container {
     display: flex;
     flex-direction: column;
+    height: 8rem;
   }
-  
+
   .total {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  
+
   .total h2 {
     color: white;
   }
-  
-  .total-container .btn-opt{
+
+  .total-container .btn-opt {
     display: flex;
     justify-content: space-between;
     width: 100%;

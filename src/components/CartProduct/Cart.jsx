@@ -23,11 +23,11 @@ export default function Cart() {
         <div className="empty">O seu carrinho está vazio</div>
       )}
       <div>
-        {cartItems.map((item) => (
-          <span key={item._id}>
-            <Card className="mb-3">
-              <Row className="g-0">
-                <Col md={4} lg={4}>
+        <Row xs={1} md={2} lg={4} className="g-0">
+          {cartItems.map((item) => (
+            <span key={item._id}>
+              <Col>
+                <Card className="mb-3 cart-items">
                   <Card.Body>
                     <Button
                       className="remove-item text-right btn-danger"
@@ -65,11 +65,11 @@ export default function Cart() {
                       )}
                     </div>
                   </Card.Body>
-                </Col>
-              </Row>
-            </Card>
-          </span>
-        ))}
+                </Card>
+              </Col>
+            </span>
+          ))}
+        </Row>
         <Navbar
           className="container-fluid fixed-bottom total-container"
           bg="dark"
