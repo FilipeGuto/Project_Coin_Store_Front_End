@@ -35,7 +35,7 @@ export default function InfoUsers() {
 
   if (!data)
     return (
-      <div className="loading">
+      <div className="loading-admin">
         <h3>Carregando usuarios...</h3>
       </div>
     );

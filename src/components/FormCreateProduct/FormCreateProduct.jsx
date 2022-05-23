@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createNewProduct } from "../../services/products";
 import { Form, Button } from "react-bootstrap";
+import "./createProduct.css";
 
 export default function FormCreateProduct() {
   const [title, setTitle] = useState("");
@@ -37,8 +38,8 @@ export default function FormCreateProduct() {
 
   return (
     <div className="form-login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form onSubmit={handleSubmit} className="container-fluid mt-1 mb-2">
+        <Form.Group className="mb-3">
           <Form.Label>Nome do produto</Form.Label>
           <Form.Control
             type="text"
@@ -46,7 +47,7 @@ export default function FormCreateProduct() {
             onChange={(e) => setTitle(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Descrição</Form.Label>
           <textarea
             type="text"
@@ -79,10 +80,10 @@ export default function FormCreateProduct() {
             onChange={(e) => setImage(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="btn-create">
           CRIAR
         </Button>
-        <div className="loading">
+        <div>
           {emptyText}
           {sucess}
         </div>

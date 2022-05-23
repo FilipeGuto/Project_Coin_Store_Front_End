@@ -80,7 +80,7 @@ export default function Cart() {
           </div>
           <span className="btn-opt">
             <Button onClick={() => clearCart()}>LIMPAR CARRINHO</Button>
-            <Button>COMPRAR</Button>
+            <Button variant="secondary">COMPRAR</Button>
           </span>
         </Navbar>
       </div>

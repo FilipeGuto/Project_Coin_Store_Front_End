@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+  .form-login {
+    height: 35rem;
+  }
+
+  .btn-create {
+    display: flex !important;
+    justify-content: center !important;
+  }
+};

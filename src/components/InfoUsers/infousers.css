@@ -14,17 +14,20 @@
   background-color: #333741 !important;
 }
 
+
 .noWrap {
   white-space: nowrap;
 }
 
-.loading {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-top: 0 1rem;
-}
-
 .info-table {
   margin: 1rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .loading-admin {
+    margin-top: 3rem;
+    text-align: center;
+    font-weight: bold;
+  }
 }
