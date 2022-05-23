@@ -7,7 +7,7 @@
 
 .card-product {
   margin-bottom: 4px;
-  height: 100%;
+  height: 30rem;
 }
 
 .img-product {
@@ -44,6 +44,15 @@
 
 .btn-add-cart:active{
   transform: translateY(2px);
+}
+
+.loading {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.loading img{
+  width: 30rem;
 }
 
 @media screen and (max-width: 600px) {

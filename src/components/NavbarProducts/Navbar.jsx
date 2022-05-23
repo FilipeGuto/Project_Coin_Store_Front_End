@@ -21,7 +21,7 @@ export default function NavbarProducts() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="container-fluid fixed-top">
+      <Navbar bg="dark" variant="dark" className="container-fluid fixed-top nav-products-container">
         <Container className="nav-product">
           <Navbar.Brand>
             <strong>COIN STORE</strong>
