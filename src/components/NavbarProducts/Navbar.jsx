@@ -27,7 +27,7 @@ export default function NavbarProducts() {
             <strong>COIN STORE</strong>
           </Navbar.Brand>
           <Nav>
-            <Nav.Link data-cy="name" className="coin-nav-name">
+            <Nav.Link data-cy="name" className="nav-name-product">
               {user.name}
             </Nav.Link>
             <Nav.Link

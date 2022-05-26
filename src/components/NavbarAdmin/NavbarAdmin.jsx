@@ -19,7 +19,7 @@ export default function NavbarAdmin() {
         <Container className="nav-admin">
           <Navbar.Brand className="logo"><strong>COIN STORE</strong></Navbar.Brand>
           <Nav>
-            <Nav.Link data-cy="name" className="coin-nav">{user.name}</Nav.Link>
+            <Nav.Link data-cy="name" className="nav-name-admin">{user.name}</Nav.Link>
             <button data-cy="button-product" className="btn-loggout" type="button" onClick={() => navigate("/products")}>
               PRODUTOS
             </button>

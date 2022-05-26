@@ -1,9 +1,16 @@
-.coin-nav, .coin-nav-name, .coin-nav-cart{
+.coin-nav, .coin-nav-cart{
   font-size: 1.2rem !important;
   text-transform: uppercase;
   font-weight: bold;
   display: flex !important;
   align-items: center !important;
+}
+
+.nav-name-product {
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  font-size: 1.2rem;
 }
 
 .nav-product {

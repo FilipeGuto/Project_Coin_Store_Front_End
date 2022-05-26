@@ -8,9 +8,16 @@
   color: white !important;
 }
 
-.coin-nav-name {
+.nav-coin-logo {
   color: white !important;
-  cursor: pointer !important;
+  font-size: 1.3rem;
+}
+
+.nav-name-user {
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  font-size: 1.2rem;
 }
 
 .nav-product {
@@ -41,5 +48,18 @@
 
   .btn-loggout {
     margin:0
+  }
+
+  .nav-coin-logo {
+    color: white !important;
+    font-size: 1rem;
+    font-weight: bold !important;
+  }
+  
+  .nav-name-user {
+    color: white !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    font-size: 1rem;
   }
 }

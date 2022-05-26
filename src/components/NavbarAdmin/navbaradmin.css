@@ -5,6 +5,13 @@
   margin: 0 1rem 0 1rem;
 }
 
+.nav-name-admin {
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  font-size: 1.2rem;
+}
+
 .btn-loggout {
   margin-left: rem;
   background-color: #0d6efd;
@@ -31,5 +38,12 @@
   .btn-loggout {
     margin: 0 3px;
     padding: 0.2rem 0.1rem;
+  }
+
+  .nav-name-admin {
+    color: white !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    font-size: 1rem;
   }
 }

@@ -62,7 +62,7 @@ export default function InfoUsers() {
                   <td>{user.coin}</td>
                   <button
                     type="button"
-                    className="btn-users"
+                    className="btn-list-users"
                     onClick={() => handleCoins(user.email, user.coin, user.id)}
                   >
                     Alterar coin

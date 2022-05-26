@@ -1,4 +1,4 @@
-.btn-users {
+.btn-list-users {
   background-color: #0d6efd !important;
   cursor: pointer;
   font-size: 1rem;
@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.btn-users:hover {
+.btn-list-users:hover {
   background-color: #333741 !important;
 }
 

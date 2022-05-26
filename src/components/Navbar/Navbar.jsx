@@ -18,12 +18,12 @@ export default function NavbarUser() {
       <Navbar bg="dark" variant="dark" className="container-fluid fixed-top">
         <Container className="nav-product">
           <Navbar.Brand>
-            <Nav.Link className="coin-nav-name" onClick={() => navigate("/products")}>
+            <Nav.Link className="nav-coin-logo" onClick={() => navigate("/products")}>
               <strong>COIN STORE</strong>
             </Nav.Link>
           </Navbar.Brand>
           <Nav>
-            <Nav.Link data-cy="name" className="coin-nav-name">
+            <Nav.Link data-cy="name" className="nav-name-user">
               {user.name}
             </Nav.Link>
             <Nav.Link data-cy="coin" className="coin-nav">
