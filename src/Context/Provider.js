@@ -4,6 +4,7 @@ import Context from './Context';
 function Provider({ children }) {
   const [updateUser, setUpdateUser] = useState({});
   const [cartItems, setCartItems] = useState([]);
+  const [newUser, setNewUser] = useState({});
 
   const handleAddProduct = (product) => {
     const copyProductCart = [...cartItems];
@@ -50,13 +51,15 @@ function Provider({ children }) {
 
   const providerValue = {
     updateUser,
-    setUpdateUser,
+    newUser,
     cartItems,
+    setUpdateUser,
     setCartItems,
     handleAddProduct,
     handleRemoveProduct,
     handleRemove,
     clearCart,
+    setNewUser,
   };
 
   return (

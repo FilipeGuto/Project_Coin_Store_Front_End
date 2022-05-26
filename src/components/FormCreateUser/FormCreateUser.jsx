@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { createNewUser } from "../../services/users";
 import { useNavigate } from "react-router-dom";
+import Context from "../../Context/Context";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 export default function FormCreateUser() {
+  const { setNewUser } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -34,7 +36,8 @@ export default function FormCreateUser() {
 
         navigate("/register");
       } else {
-        navigate("/login");
+        setNewUser(create);
+        navigate("/products");
       }
     }
   };
@@ -79,7 +82,7 @@ export default function FormCreateUser() {
                 />
               </Form.Group>
               <Button data-cy="button-submit" type="submit">
-                CRIAR
+                LOGAR
               </Button>
               <div>{emptyText}</div>
               <div>{handleError}</div>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Context from "../../Context/Context";
 import { Card, Row, Col, Navbar, Button } from "react-bootstrap";
+import { updateCoinUser } from "../../services/users";
 import "./cart.css";
 
 export default function Cart() {
@@ -10,12 +11,30 @@ export default function Cart() {
     handleRemoveProduct,
     handleRemove,
     clearCart,
+    newUser,
+    setNewUser,
   } = useContext(Context);
 
   const totalPrice = cartItems.reduce(
     (price, item) => price + item.qtd * item.price,
     0
   );
+
+  const handleBuyItem = async () => {
+    const myCoins = newUser.coin;
+    if (totalPrice > myCoins) {
+      alert("Saldo insuficiente");
+    }
+    if (totalPrice <= myCoins) {
+      alert("Compra efetuada com sucesso");
+      const buyData = {
+        email: newUser.email,
+        coin: newUser.coin = myCoins - totalPrice,
+      };
+      await updateCoinUser(buyData);
+      setNewUser({...newUser}, newUser.coin = buyData.coin);
+    }
+  };
 
   return (
     <>
@@ -80,7 +99,7 @@ export default function Cart() {
           </div>
           <span className="btn-opt">
             <Button onClick={() => clearCart()}>LIMPAR CARRINHO</Button>
-            <Button variant="secondary">COMPRAR</Button>
+            <Button onClick={() => handleBuyItem()}>COMPRAR</Button>
           </span>
         </Navbar>
       </div>

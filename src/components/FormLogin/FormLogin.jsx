@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { loginUser } from "../../services/users";
 import { useNavigate } from "react-router-dom";
+import Context from "../../Context/Context";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import "./formLogin.css";
 
 export default function FormLogin() {
+  const { setNewUser } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emptyText, setEmptyText] = useState("");
@@ -24,7 +26,7 @@ export default function FormLogin() {
       }, "5000");
       setLoading("Carregando...");
       const logged = await loginUser(userData);
-      localStorage.setItem("user", JSON.stringify(logged));
+      setNewUser(logged);
       if (logged.message) {
         setHandleError("Email ou senha incorretas");
       }

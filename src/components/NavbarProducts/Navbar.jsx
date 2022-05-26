@@ -5,8 +5,7 @@ import "./navproduct.css";
 import Context from "../../Context/Context";
 
 export default function NavbarProducts() {
-  const { cartItems } = useContext(Context);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { cartItems, newUser } = useContext(Context);
   const navigate = useNavigate();
 
   const goToCart = () => {
@@ -14,8 +13,6 @@ export default function NavbarProducts() {
   };
 
   const loggout = () => {
-    localStorage.removeItem("user");
-
     navigate("/");
   };
 
@@ -28,7 +25,7 @@ export default function NavbarProducts() {
           </Navbar.Brand>
           <Nav>
             <Nav.Link data-cy="name" className="nav-name-product">
-              {user.name}
+              {newUser.name}
             </Nav.Link>
             <Nav.Link
               type="button"
