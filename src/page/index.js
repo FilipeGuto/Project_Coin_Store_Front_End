@@ -4,6 +4,7 @@ import Product from "./Product";
 import Admin from "./Admin";
 import UserCoin from "./UserCoin";
 import CartPage from "./Cart";
+import NotFound from "./NotFound";
 
 export {
   Login,
@@ -12,4 +13,5 @@ export {
   Admin,
   UserCoin,
   CartPage,
+  NotFound,
 };

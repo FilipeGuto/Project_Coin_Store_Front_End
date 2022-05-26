@@ -30,9 +30,9 @@ export default function FormCreateUser() {
       if (create.message) {
         setHandleError("Email já cadastrado");
 
-        setName('')
-        setEmail('')
-        setPassword('')
+        setName("");
+        setEmail("");
+        setPassword("");
 
         navigate("/register");
       } else {

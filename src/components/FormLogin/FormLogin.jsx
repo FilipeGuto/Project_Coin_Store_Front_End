@@ -22,8 +22,7 @@ export default function FormLogin() {
     if (!email && !password) {
       setEmptyText("Insira dados válidos");
     } else if (userData) {
-      setTimeout(() => {
-      }, "5000");
+      setTimeout(() => {}, "5000");
       setLoading("Carregando...");
       const logged = await loginUser(userData);
       setNewUser(logged);
@@ -90,7 +89,7 @@ export default function FormLogin() {
               <div data-cy="error-fields">{handleError}</div>
             </Form>
           </Col>
-        <span className="loading-login">{loading}</span>
+          <span className="loading-login">{loading}</span>
         </Row>
       </Container>
     </div>
