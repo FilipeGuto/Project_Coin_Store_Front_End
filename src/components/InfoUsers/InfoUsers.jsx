@@ -22,8 +22,9 @@ export default function InfoUsers() {
     getInfo();
   }, []);
 
-  const handleCoins = (email, coin) => {
+  const handleCoins = (email, coin, id) => {
     const dataUser = {
+      id,
       email,
       coin,
     };
@@ -63,9 +64,9 @@ export default function InfoUsers() {
                   <td
                     type="button"
                     className="btn-list-users"
-                    onClick={() => handleCoins(user.email, user.coin, user.id)}
+                    onClick={() => handleCoins(user.email, user.coin, user._id)}
                   >
-                    Alterar coin
+                    Alterar
                   </td>
                 </tr>
               </tbody>

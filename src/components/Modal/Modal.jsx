@@ -13,6 +13,7 @@ export default function ModalExample(props) {
           <p className="modal-text">{props.text}</p>
         </Modal.Body>
         <Modal.Footer>
+          <>{props.save}</>
           <>{props.close}</>
         </Modal.Footer>
       </Modal.Dialog>

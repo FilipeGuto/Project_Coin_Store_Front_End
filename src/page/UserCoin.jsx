@@ -1,15 +1,17 @@
 import React, { useContext, useState } from "react";
 import NavbarAdmmin from "../components/NavbarAdmin/NavbarAdmin";
-import { updateCoinUser } from "../services/users";
+import { updateCoinUser, deleteUser } from "../services/users";
 import { useNavigate } from "react-router";
-import Context from "../Context/Context";
 import { Card, Button, Form } from "react-bootstrap";
+import Modal from "../components/Modal/Modal";
+import Context from "../Context/Context";
 
 export default function UserCoin() {
   const { updateUser, setUpdateUser } = useContext(Context);
   const [coin, setCoin] = useState("");
   const [emptyText, setEmptyText] = useState("");
   const [sucess, setSucess] = useState("");
+  const [deletedUser, setDeletedUser] = useState("");
   const navigate = useNavigate();
 
   const updateCoin = async (e) => {
@@ -21,7 +23,7 @@ export default function UserCoin() {
     };
 
     if (!coin) {
-      setEmptyText("Preencha o campo de moedas");
+      setEmptyText("Preencha o campo de nova quantia");
     } else if (update) {
       await updateCoinUser(update);
       setSucess("Moedas alterada com sucesso");
@@ -32,9 +34,52 @@ export default function UserCoin() {
     }
   };
 
+  const userDeleted = async () => {
+    const { id } = updateUser;
+
+    if (id) {
+      await deleteUser(id);
+      setSucess("Usuario deletado com sucesso");
+
+      setUpdateUser(id);
+    }
+  };
+
+  const handleDeleteUSer = () => {
+    setDeletedUser(
+      <Modal
+        className="deleted-user"
+        title={"Deletar Usuario"}
+        text={"Tem certeza que deseja excluir esse usuario? 🙁"}
+        save={
+          <button
+            onClick={() => {
+              userDeleted()
+              setDeletedUser()
+            }}
+            type="button"
+            className="btn btn-danger"
+          >
+            SIM
+          </button>
+        }
+        close={
+          <button
+            onClick={() => setDeletedUser()}
+            type="button"
+            className="btn btn-primary"
+          >
+            NÃO
+          </button>
+        }
+      />
+    );
+  };
+
   return (
     <div>
       <NavbarAdmmin />
+      {deletedUser}
       <Card className="text-center mt-5">
         <Card.Header></Card.Header>
         <Card.Body>
@@ -52,11 +97,12 @@ export default function UserCoin() {
             ALTERAR
           </Button>{" "}
           <Button
-          variant="secondary"
-          type="button"
+            variant="danger"
+            type="button"
+            onClick={() => handleDeleteUSer()}
           >
             DELETAR
-          </Button>{' '}
+          </Button>{" "}
           <Button
             variant="primary"
             type="button"
