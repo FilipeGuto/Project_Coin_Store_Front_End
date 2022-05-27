@@ -87,7 +87,7 @@ export default function Cart() {
       <div>
         {failedBuy}
         {sucessBuy}
-        <Row xs={1} md={2} lg={4} className="g-0">
+        <Row xs={1} sm={8} md={8} lg={8} xl={5} className="g-0">
           {cartItems.map((item) => (
             <span key={item._id}>
               <Col>
