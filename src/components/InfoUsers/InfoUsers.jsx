@@ -51,26 +51,26 @@ export default function InfoUsers() {
             <th>COIN</th>
           </tr>
         </thead>
-        <tbody>
-          {data &&
-            data.map((user) =>
-              user.role === "admin" ? null : (
+        {data &&
+          data.map((user, index) =>
+            user.role === "admin" ? null : (
+              <tbody key={index}>
                 <tr>
                   <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.coin}</td>
-                  <button
+                  <td
                     type="button"
                     className="btn-list-users"
                     onClick={() => handleCoins(user.email, user.coin, user.id)}
                   >
                     Alterar coin
-                  </button>
+                  </td>
                 </tr>
-              )
-            )}
-        </tbody>
+              </tbody>
+            )
+          )}
       </Table>
     </div>
   );
