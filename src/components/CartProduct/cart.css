@@ -96,6 +96,10 @@
   font-size: 1.2rem;
 }
 
+.failed-buy {
+  background-color: red !important;
+}
+
 @media screen and (max-width: 425px) {
   .empty {
     font-size: 1.3rem;

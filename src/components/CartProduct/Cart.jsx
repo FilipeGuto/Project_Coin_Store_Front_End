@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Context from "../../Context/Context";
 import { Card, Row, Col, Navbar, Button } from "react-bootstrap";
+import Modal from "../../components/Modal/Modal";
 import { updateCoinUser } from "../../services/users";
 import "./cart.css";
 
 export default function Cart() {
+  const [failedBuy, setFailedBuy] = useState();
+  const [sucessBuy, setSuccessBuy] = useState();
+
   const {
     cartItems,
     handleAddProduct,
@@ -23,16 +27,55 @@ export default function Cart() {
   const handleBuyItem = async () => {
     const myCoins = newUser.coin;
     if (totalPrice > myCoins) {
-      alert("Saldo insuficiente");
+      setFailedBuy(
+        <Modal
+          className="failed-buy"
+          title={"Saldo insuficiente"}
+          text={"Desculpe mas você não tem COINS suficientes 🙁"}
+          close={
+            <button
+              onClick={() => setFailedBuy()}
+              type="button"
+              className="btn btn-primary"
+            >
+              FECHAR
+            </button>
+          }
+        />
+      );
     }
     if (totalPrice <= myCoins) {
-      alert("Compra efetuada com sucesso");
+      setSuccessBuy(
+        <Modal
+          className="sucess-buy"
+          title={"Compra efetuada"}
+          text={
+            <a
+              href="https://portfolio-react-filipe-augusto.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Veja meus outros projetos, clicando aqui 😁
+            </a>
+          }
+          close={
+            <button
+              onClick={() => setSuccessBuy()}
+              type="button"
+              className="btn btn-primary"
+            >
+              FECHAR
+            </button>
+          }
+        />
+      );
+
       const buyData = {
         email: newUser.email,
-        coin: newUser.coin = myCoins - totalPrice,
+        coin: (newUser.coin = myCoins - totalPrice),
       };
       await updateCoinUser(buyData);
-      setNewUser({...newUser}, newUser.coin = buyData.coin);
+      setNewUser({ ...newUser }, (newUser.coin = buyData.coin));
     }
   };
 
@@ -42,6 +85,8 @@ export default function Cart() {
         <div className="empty">O seu carrinho está vazio</div>
       )}
       <div>
+        {failedBuy}
+        {sucessBuy}
         <Row xs={1} md={2} lg={4} className="g-0">
           {cartItems.map((item) => (
             <span key={item._id}>
