@@ -65,8 +65,7 @@ React.js, Hooks, Context, Routes, React-Bootstrap, Cypress.
 
 * Implementação de testes unitarios, e um cobrimento maior de erros.
 * Completar mais testes de integração para componentes de usuario.
-* Implementar Delete de usuario e update de produtos
-* Implementar tela de checkout
+* Implementar Delete de usuarios.
 
 ---
 
