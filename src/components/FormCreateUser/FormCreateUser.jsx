@@ -11,6 +11,7 @@ export default function FormCreateUser() {
   const [name, setName] = useState("");
   const [emptyText, setEmptyText] = useState("");
   const [handleError, setHandleError] = useState("");
+  const [loading, setLoading] = useState(null);
 
   const navigate = useNavigate();
 
@@ -26,6 +27,8 @@ export default function FormCreateUser() {
     if (!name && !email && !password) {
       setEmptyText("Insira dados válidos");
     } else if (userData) {
+      setTimeout(() => {}, "5000");
+      setLoading("Carregando...");
       const create = await createNewUser(userData);
       if (create.message) {
         setHandleError("Email já cadastrado");
@@ -86,6 +89,7 @@ export default function FormCreateUser() {
               </Button>
               <div>{emptyText}</div>
               <div>{handleError}</div>
+              <div>{loading}</div>
             </Form>
           </Col>
         </Row>

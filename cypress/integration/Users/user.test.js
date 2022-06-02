@@ -10,7 +10,7 @@ describe('Componente de "Login"', () => {
     cy.visit('/');
   });
 
-  it('Veririfica se  o titulo esta correto', () => {
+  it('Veririfica se o titulo esta correto', () => {
     cy.contains(TITLE).should('to.have.length', 1);
   });
 
